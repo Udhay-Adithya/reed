@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- mipmap-anydpi-v26/ic_logo.xml - adaptive icon wrapper for system-level splash usage -->
+<adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- background should be a color or drawable; keep black to match your splash background -->
+    <background android:drawable="@color/black" />
+    <!-- foreground uses your existing vector drawable -->
+    <foreground android:drawable="@drawable/ic_logo" />
+</adaptive-icon>
+
