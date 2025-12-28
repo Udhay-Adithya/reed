@@ -63,6 +63,8 @@ dependencies {
     androidTestImplementation(libs.androidx.compose.ui.test.junit4)
     debugImplementation(libs.androidx.compose.ui.tooling)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
+
+    // Splash Screen
     implementation(libs.androidx.core.splashscreen)
 
     // Koin
@@ -72,8 +74,12 @@ dependencies {
     implementation(libs.koin.androidx.compose)
 
 
-    //Retrofit
+    // Retrofit
     implementation(libs.retrofit)
     implementation(libs.converter.gson)
     implementation(libs.logging.interceptor)
+
+    // Navigation
+    implementation(libs.androidx.navigation.compose)
+    implementation(libs.koin.androidx.compose.navigation)
 }
