@@ -70,4 +70,9 @@ dependencies {
     ksp(libs.koin.ksp)
     implementation(libs.koin.annotations)
     ksp(libs.koin.ksp.compiler)
+
+    //Retrofit
+    implementation(libs.retrofit)
+    implementation(libs.converter.gson)
+    implementation(libs.logging.interceptor)
 }
