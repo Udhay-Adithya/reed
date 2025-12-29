@@ -85,4 +85,7 @@ dependencies {
 
     // MaterialKolor
     implementation(libs.material.kolor)
+
+    // Icons
+    implementation(libs.tabler.icons)
 }

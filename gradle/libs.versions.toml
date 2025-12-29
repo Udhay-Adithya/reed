@@ -19,6 +19,7 @@ materialKolor = "4.0.0"
 navigationCompose = "2.9.6"
 retrofit = "3.0.0"
 material3 = "1.5.0-alpha11"
+tablerIcons = "1.1.1"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -47,6 +48,7 @@ logging-interceptor = { module = "com.squareup.okhttp3:logging-interceptor", ver
 material-kolor = { module = "com.materialkolor:material-kolor", version.ref = "materialKolor" }
 retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
 androidx-material3 = { group = "androidx.compose.material3", name = "material3", version.ref = "material3" }
+tabler-icons = { module = "br.com.devsrsouza.compose.icons:tabler-icons", version.ref = "tablerIcons" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
