@@ -1,5 +1,4 @@
 package com.udhay.reed.ui.features.auth
-
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -39,9 +38,9 @@ import org.koin.compose.viewmodel.koinViewModel
 
 @OptIn(ExperimentalMaterial3ExpressiveApi::class)
 @Composable
-fun LoginScreen(
-    onLoginSuccess: () -> Unit,
-    onNavigateToSignup: ((link: LinkAnnotation) -> Unit),
+fun SignupScreen(
+    onSignupSuccess: () -> Unit,
+    onNavigateToLogin: ((link: LinkAnnotation) -> Unit),
     viewModel: AuthViewModel = koinViewModel()
 ) {
     LaunchedEffect(Unit) {
@@ -92,7 +91,7 @@ fun LoginScreen(
                         modifier = Modifier.height(12.dp)
                     )
                     Text(
-                        text = "Great to see\nyou!",
+                        text = "Ready to rock?",
                         textAlign = TextAlign.Center,
                         style = MaterialTheme.typography.headlineLarge,
                         fontWeight = FontWeight.Bold
@@ -102,7 +101,7 @@ fun LoginScreen(
                     )
 
                     Text(
-                        text = "Log in and dive into your\nuniverse of tunes",
+                        text = "Sign up and unlock\nendless jams",
                         style = MaterialTheme.typography.bodyLarge,
                         textAlign = TextAlign.Center,
                         color = MaterialTheme.colorScheme.outline
@@ -111,6 +110,19 @@ fun LoginScreen(
 
                     Spacer(
                         modifier = Modifier.height(48.dp)
+                    )
+
+                    LabeledOutlinedTextField(
+                        label = "Name",
+                        value = email,
+                        onValueChange = { email = it },
+                        placeholder = "Name",
+                        keyboardType = KeyboardType.Email
+                    )
+
+
+                    Spacer(
+                        modifier = Modifier.height(18.dp)
                     )
 
                     LabeledOutlinedTextField(
@@ -123,7 +135,7 @@ fun LoginScreen(
 
 
                     Spacer(
-                        modifier = Modifier.height(28.dp)
+                        modifier = Modifier.height(18.dp)
                     )
 
                     LabeledOutlinedTextField(
@@ -140,7 +152,7 @@ fun LoginScreen(
                     )
 
                     Button(
-                        onClick = onLoginSuccess,
+                        onClick = onSignupSuccess,
                         modifier = Modifier
                             .fillMaxWidth()
                             .height(56.dp),
@@ -152,7 +164,7 @@ fun LoginScreen(
 
                         ) {
                         Text(
-                            "Login",
+                            "Signup",
                             style = MaterialTheme.typography.bodyLarge,
                             textAlign = TextAlign.Start,
                             fontWeight = FontWeight.Bold
@@ -162,12 +174,12 @@ fun LoginScreen(
                     Spacer(Modifier.weight(1f))
 
                     val annotatedText = buildAnnotatedString {
-                        append("Don't have an account? ")
+                        append("Already have an account? ")
 
                         pushLink(
                             LinkAnnotation.Clickable(
-                                tag = "register",
-                                linkInteractionListener = onNavigateToSignup
+                                tag = "login",
+                                linkInteractionListener = onNavigateToLogin
                             )
                         )
                         withStyle(
@@ -176,7 +188,7 @@ fun LoginScreen(
                                 fontWeight = FontWeight.SemiBold
                             )
                         ) {
-                            append("Register")
+                            append("Login")
                         }
                         pop()
                     }
