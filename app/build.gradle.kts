@@ -82,4 +82,7 @@ dependencies {
     // Navigation
     implementation(libs.androidx.navigation.compose)
     implementation(libs.koin.androidx.compose.navigation)
+
+    // MaterialKolor
+    implementation(libs.material.kolor)
 }
