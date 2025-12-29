@@ -1,4 +1,4 @@
-package com.udhay.reed.ui.common
+package com.udhay.reed.ui.components
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
