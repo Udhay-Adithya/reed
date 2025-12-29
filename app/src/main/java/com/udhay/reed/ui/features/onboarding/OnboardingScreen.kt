@@ -56,7 +56,7 @@ fun OnboardingScreen(
 
     val state = viewModel.state.collectAsStateWithLifecycle()
 
-    when (val uiState = state.value) {
+    when (state.value) {
         is OnboardingUiState.Loading -> {
             Loader()
         }
