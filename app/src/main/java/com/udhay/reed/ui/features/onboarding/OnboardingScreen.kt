@@ -42,7 +42,7 @@ import org.koin.ksp.generated.module
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalMaterial3ExpressiveApi::class)
 @Composable
 fun OnboardingScreen(
-    navController: NavController,
+    onNavigateToLogin: () -> Unit,
     viewModel: OnboardingViewModel = koinViewModel()
 ) {
     LaunchedEffect(Unit) {
@@ -120,9 +120,7 @@ fun OnboardingScreen(
                         )
 
                         Button(
-                            onClick = {
-
-                            },
+                            onClick = onNavigateToLogin,
                             modifier = Modifier
                                 .fillMaxWidth()
                                 .height(56.dp),
@@ -168,7 +166,7 @@ fun OnboardingScreenPreview() {
         androidContext(context)
     }) {
         OnboardingScreen(
-            rememberNavController()
+            onNavigateToLogin = {}
         )
     }
 }
