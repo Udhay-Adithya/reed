@@ -39,7 +39,7 @@ fun NavGraph(
             )
         }
 
-        composable(route = Routes.Login.route) {
+        composable(route = Routes.Signup.route) {
             SignupScreen(
                 onSignupSuccess = {
                     navController.navigate(Routes.Home.route) {
