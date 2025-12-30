@@ -1,4 +1,5 @@
 package com.udhay.reed.ui.features.auth
 sealed interface AuthUiEvent {
-    data class ShowErrorMessage(val message: String) : AuthUiEvent
+    data class Login(val email: String, val password: String) : AuthUiEvent
+
 }
