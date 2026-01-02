@@ -77,17 +77,6 @@ fun LoginScreen(
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
 
-//    if (state is AuthUiState.Error) {
-//        ErrorScreen(
-//            errorMessage = (state as AuthUiState.Error).message,
-//            primaryButton = "Retry",
-//            onPrimaryButtonClicked = {
-//                // viewModel.retry()
-//            }
-//        ) {}
-//        return
-//    }
-
     val isLoading = state is AuthUiState.Loading
 
     Scaffold(
