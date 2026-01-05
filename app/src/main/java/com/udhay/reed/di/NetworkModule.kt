@@ -1,5 +1,6 @@
 package com.udhay.reed.di
 
+import com.google.gson.Gson
 import com.udhay.reed.data.network.ApiService
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -38,4 +39,7 @@ class NetworkModule {
     fun provideApiService(retrofit: Retrofit) : ApiService{
         return retrofit.create(ApiService::class.java)
     }
+
+    @Single
+    fun provideGson() : Gson = Gson()
 }

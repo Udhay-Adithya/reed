@@ -1,5 +1,6 @@
 package com.udhay.reed.data.repository
 
+import com.google.gson.Gson
 import com.udhay.reed.data.model.AuthResponse
 import com.udhay.reed.data.model.LoginRequest
 import com.udhay.reed.data.model.RegisterRequest
@@ -8,32 +9,22 @@ import com.udhay.reed.data.network.Resource
 import org.koin.core.annotation.Single
 
 @Single
-class AuthRepository(private val apiService: ApiService) {
-    suspend fun loginUser(loginRequest: LoginRequest): Resource<AuthResponse> {
-        return try {
-            val res = apiService.login(loginRequest)
-            if (res.isSuccessful) {
-                Resource.Success(res.body()!!)
-            } else {
-                Resource.Error("Login failed")
-            }
-        } catch (e: Exception) {
-            Resource.Error("Unexpected error: ${e.message}")
+class AuthRepository(
+    private val apiService: ApiService,
+    gson: Gson
+) : BaseRepository(gson) {
+
+    suspend fun loginUser(
+        loginRequest: LoginRequest
+    ): Resource<AuthResponse> =
+        safeApiCall {
+            apiService.login(loginRequest)
         }
-    }
 
-
-    suspend fun registerUser(registerRequest: RegisterRequest): Resource<AuthResponse> {
-        return try {
-            val res = apiService.register(registerRequest)
-            if (res.isSuccessful) {
-                Resource.Success(res.body()!!)
-            } else {
-                Resource.Error("Login failed")
-            }
-        } catch (e: Exception) {
-            Resource.Error("Unexpected error: ${e.message}")
+    suspend fun registerUser(
+        registerRequest: RegisterRequest
+    ): Resource<AuthResponse> =
+        safeApiCall {
+            apiService.register(registerRequest)
         }
-    }
-
 }
