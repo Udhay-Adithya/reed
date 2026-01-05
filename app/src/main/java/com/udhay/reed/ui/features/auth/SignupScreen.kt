@@ -158,7 +158,8 @@ fun SignupScreen(
             Button(
                 onClick = {
                     viewModel.onEvent(
-                        AuthUiEvent.Login(
+                        AuthUiEvent.Signup(
+                            name = name,
                             email = email,
                             password = password
                         )
