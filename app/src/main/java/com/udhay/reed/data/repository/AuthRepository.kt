@@ -20,7 +20,6 @@ class AuthRepository(
         safeApiCall {
             apiService.login(loginRequest)
         }
-
     suspend fun registerUser(
         registerRequest: RegisterRequest
     ): Resource<AuthResponse> =
