@@ -88,4 +88,7 @@ dependencies {
 
     // Icons
     implementation(libs.tabler.icons)
+
+    // DataStore Preferences
+    implementation(libs.androidx.datastore.preferences)
 }
