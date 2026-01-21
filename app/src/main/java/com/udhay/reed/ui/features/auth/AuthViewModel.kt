@@ -6,6 +6,7 @@ import com.udhay.reed.data.model.LoginRequest
 import com.udhay.reed.data.model.RegisterRequest
 import com.udhay.reed.data.network.Resource
 import com.udhay.reed.data.repository.AuthRepository
+import com.udhay.reed.data.repository.LocalDataRepository
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharedFlow
@@ -15,7 +16,7 @@ import kotlinx.coroutines.launch
 import org.koin.android.annotation.KoinViewModel
 
 @KoinViewModel
-class AuthViewModel(val repository: AuthRepository) : ViewModel() {
+class AuthViewModel(val repository: AuthRepository, val localDataRepository: LocalDataRepository) : ViewModel() {
 
     private val _state = MutableStateFlow<AuthUiState>(AuthUiState.Initial)
     val state: StateFlow<AuthUiState> = _state
@@ -51,6 +52,7 @@ class AuthViewModel(val repository: AuthRepository) : ViewModel() {
                         AuthUiEffect.ShowErrorMessage(res.message))
                 }
                 is Resource.Success -> {
+                    localDataRepository.storeToken(res.data.token)
                     _state.value = AuthUiState.Success
                     _effect.emit(AuthUiEffect.NavigateToHome)
 
@@ -81,6 +83,7 @@ class AuthViewModel(val repository: AuthRepository) : ViewModel() {
                         AuthUiEffect.ShowErrorMessage(res.message))
                 }
                 is Resource.Success -> {
+                    localDataRepository.storeToken(res.data.token)
                     _state.value = AuthUiState.Success
                     _effect.emit(AuthUiEffect.NavigateToHome)
 
