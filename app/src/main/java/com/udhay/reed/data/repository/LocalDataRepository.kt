@@ -31,5 +31,4 @@ class LocalDataRepository(
     suspend fun clearToken(){
         context.dataStore.edit { preferences -> preferences.remove(TOKEN_KEY) }
     }
-
 }
